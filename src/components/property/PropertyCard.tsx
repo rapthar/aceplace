@@ -28,7 +28,7 @@ const PropertyCard = ({ type, title, guests, bedrooms, price, rating, image }: P
     <Link to={`/property/${index}`} className="block group">
       <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
         <div className="relative">
-          <img src={image} alt={title} className="w-full h-60 object-cover" />
+          <img src={image} alt={title} className="w-full h-48 sm:h-52 lg:h-60 object-cover" />
           <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[type]}`}></div>
           <button 
             className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors"
@@ -50,7 +50,7 @@ const PropertyCard = ({ type, title, guests, bedrooms, price, rating, image }: P
           
           <h3 className="text-lg font-medium mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">{title}</h3>
           
-          <div className="flex items-center gap-4 text-gray-600 mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-gray-600 mb-4">
             <div className="flex items-center gap-1">
               <Users size={18} />
               <span>{guests} guests</span>
@@ -61,13 +61,13 @@ const PropertyCard = ({ type, title, guests, bedrooms, price, rating, image }: P
             </div>
           </div>
           
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div>
               <span className="text-xl font-semibold">${price}</span>
               <span className="text-gray-500"> USD</span>
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 sm:justify-end">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star

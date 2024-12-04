@@ -27,8 +27,8 @@ const PropertyListItem = ({ type, title, guests, bedrooms, price, rating, image 
   return (
     <Link to={`/property/${index}`}>
       <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
-        <div className="flex">
-          <div className="relative w-80 h-64">
+        <div className="flex flex-col sm:flex-row">
+          <div className="relative w-full sm:w-80 h-48 sm:h-64">
             <img src={image} alt={title} className="w-full h-full object-cover" />
             <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[type]}`}></div>
             <button 
@@ -42,16 +42,16 @@ const PropertyListItem = ({ type, title, guests, bedrooms, price, rating, image 
             </button>
           </div>
           
-          <div className="flex-1 p-6">
+          <div className="flex-1 p-4 sm:p-6">
             <div className="uppercase text-xs font-medium mb-2" style={{ color: type === 'HOUSE' ? '#3B82F6' : 
               type === 'HOTEL' ? '#9333EA' : 
               type === 'VILLA' ? '#10B981' : 
               type === 'APARTMENT' ? '#F59E0B' : 
               '#F43F5E' }}>{type}</div>
             
-            <h3 className="text-xl font-medium mb-4 hover:text-blue-600 transition-colors">{title}</h3>
+            <h3 className="text-lg sm:text-xl font-medium mb-3 sm:mb-4 hover:text-blue-600 transition-colors">{title}</h3>
             
-            <div className="flex items-center gap-4 text-gray-600 mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-gray-600 mb-4 sm:mb-6">
               <div className="flex items-center gap-1">
                 <Users size={18} />
                 <span>{guests} guests</span>
@@ -62,13 +62,13 @@ const PropertyListItem = ({ type, title, guests, bedrooms, price, rating, image 
               </div>
             </div>
             
-            <div className="flex items-center justify-between mt-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mt-auto">
               <div>
                 <span className="text-2xl font-semibold">${price}</span>
                 <span className="text-gray-500"> USD</span>
               </div>
               
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 sm:justify-end">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star
